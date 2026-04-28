@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Water Operator FAQs — Licensing, Certification & Career Resources</title>
+  <meta name="description" content="100+ frequently asked questions about water and wastewater operator licensing, certification requirements, career paths, and finding licensed professionals by state." />
+  <meta name="keywords" content="water operator license, wastewater certification, how to become water operator, license requirements by state, operator training, water treatment certification" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --bg: #f4f7f5; --surface: #ffffff; --surface-2: #eef2ef; --border: #d4ddd8; --border-soft: rgba(180,200,190,0.5);
+      --text: #1a2420; --text-2: #3d5048; --muted: #6b837a; --muted-2: #94aaa2;
+      --primary: #0e6a70; --primary-mid: #128a91; --primary-hi: #17adb5; --primary-glow: rgba(14,106,112,0.12); --primary-soft: #d6edee;
+      --radius: 16px; --radius-sm: 10px;
+      --shadow-sm: 0 1px 4px rgba(20,40,34,0.07), 0 4px 16px rgba(20,40,34,0.05);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max: 900px; --transition: 0.17s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    [data-theme="dark"] {
+      --bg: #0d1512; --surface: #131e1a; --surface-2: #192420; --border: #253530; --border-soft: rgba(50,80,68,0.5);
+      --text: #dceae4; --text-2: #9dbfb3; --muted: #607870; --muted-2: #405850;
+      --primary: #3abfc6; --primary-mid: #2da8af; --primary-hi: #52d1d8; --primary-glow: rgba(58,191,198,0.1); --primary-soft: #0e2d30;
+      --shadow-sm: 0 1px 4px rgba(0,0,0,0.25), 0 4px 16px rgba(0,0,0,0.2);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--primary); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--primary-mid); text-decoration: underline; }
+    .shell { max-width: var(--max); margin: 0 auto; padding: 0 24px 80px; }
+    
+    /* Topbar */
+    .topbar { position: sticky; top: 0; z-index: 100; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-soft); }
+    .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 11px; }
+    .brand-mark { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(145deg, var(--primary), var(--primary-hi)); display: grid; place-items: center; box-shadow: 0 2px 12px var(--primary-glow); flex-shrink: 0; }
+    .brand-text strong { display: block; font-size: 0.95rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; line-height: 1.2; }
+    .brand-text span { display: block; font-size: 0.72rem; color: var(--muted); font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--muted); transition: color var(--transition); position: relative; text-decoration: none; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--primary); transform: scaleX(0); transition: transform var(--transition); border-radius: 2px; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+    .theme-btn { width: 36px; height: 36px; border-radius: 9px; background: var(--surface-2); border: 1px solid var(--border); color: var(--muted); cursor: pointer; display: grid; place-items: center; transition: all var(--transition); }
+    .theme-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .theme-btn svg { width: 16px; height: 16px; }
+    [data-theme="dark"] .icon-sun { display: block; } [data-theme="dark"] .icon-moon { display: none; }
+    [data-theme="light"] .icon-sun { display: none; } [data-theme="light"] .icon-moon { display: block; }
+    
+    /* Page hero */
+    .page-hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); }
+    .page-hero h1 { font-size: clamp(2rem, 3vw + 0.5rem, 2.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.04em; color: var(--text); margin-bottom: 12px; }
+    .page-hero p { font-size: 0.975rem; color: var(--muted); max-width: 60ch; line-height: 1.7; }
+    
+    /* TOC */
+    .toc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin: 32px 0; }
+    .toc h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+    .toc-list { display: flex; flex-direction: column; gap: 6px; }
+    .toc-list a { font-size: 0.875rem; color: var(--primary); font-weight: 500; }
+    
+    /* Content */
+    .page-content { padding: 40px 0; }
+    .faq-section { margin-bottom: 48px; }
+    .faq-section h2 { font-size: 1.5rem; font-weight: 700; color: var(--text); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border); }
+    .faq-item { margin-bottom: 24px; }
+    .faq-q { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .faq-a { font-size: 0.9rem; color: var(--text-2); line-height: 1.7; }
+    .faq-a strong { color: var(--text); font-weight: 600; }
+    
+    @media (max-width: 960px) { .nav-links { display: none; } }
+    @media (max-width: 680px) { .shell { padding: 0 16px 60px; } }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2.5C9.2 6.2 5.5 10 5.5 14.5C5.5 18.64 8.86 22 12.5 22C16.14 22 19.5 18.64 19.5 14.5C19.5 10 15.8 6.2 12 2.5Z" fill="white" opacity="0.35"/>
+            <path d="M12 4.5C9.4 7.6 7 10.5 7 14.2C7 17.15 9.48 19.5 12.2 19.5C14.92 19.5 17.4 17.15 17.4 14.2C17.4 10.5 15 7.6 12 4.5Z" stroke="white" stroke-width="1.6" fill="none"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <strong>Water Operator Network</strong>
+          <span>Nationwide Directory</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Directory</a>
+        <a href="agencies.html">Regulatory Agencies</a>
+        <a href="training.html">Training</a>
+        <a href="faq.html" class="active">FAQs</a>
+      </nav>
+      <button class="theme-btn" id="themeBtn">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="page-hero">
+      <h1>Water Operator FAQs</h1>
+      <p>Everything you need to know about water and wastewater operator licensing, certification, career paths, and finding licensed professionals.</p>
+    </section>
+
+    <div class="toc">
+      <h2>Quick Navigation</h2>
+      <div class="toc-list">
+        <a href="#finding-operators">Finding Licensed Operators</a>
+        <a href="#licensing">Licensing & Certification Requirements</a>
+        <a href="training.html">Training & Career Resources →</a>
+        <a href="#state-specific">State-Specific Information</a>
+      </div>
+    </div>
+
+    <div class="page-content">
+
+      <!-- SECTION 1: Finding Licensed Operators -->
+      <section id="finding-operators" class="faq-section">
+        <h2>Finding Licensed Operators</h2>
+
+        <div class="faq-item">
+          <div class="faq-q">1. How do I find a licensed water operator in my state?</div>
+          <div class="faq-a">Use our <a href="index.html">nationwide directory</a> to search for licensed operators by state, license type, and name. You can also visit your <a href="agencies.html">state's regulatory agency</a> for official licensee databases.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">2. What information do I need to verify an operator's license?</div>
+          <div class="faq-a">You'll typically need the operator's full name, license number, and state of certification. Our directory masks sensitive information while allowing employers to contact operators securely.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">3. Can I search for operators by certification level?</div>
+          <div class="faq-a">Yes, our directory allows filtering by license type and level. Different states use different classification systems (Class A-D, Grade 1-4, etc.), so check your state's specific requirements.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">4. How do I contact an operator through the Water Operator Network?</div>
+          <div class="faq-a">Click the "Contact" button on any operator profile to send a message through our network. Personal contact information remains private until the operator chooses to share it.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">5. Are all operators in the directory currently licensed?</div>
+          <div class="faq-a">We display license status (Active, Inactive, Expired) for each operator. Filter by "Active" status to see only currently licensed professionals.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">6. How often is the operator database updated?</div>
+          <div class="faq-a">Our directory pulls from state regulatory databases and is updated regularly. For the most current information, we recommend also checking the official <a href="agencies.html">state agency portals</a>.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">7. Can I find wastewater operators as well as drinking water operators?</div>
+          <div class="faq-a">Yes, our directory includes water treatment operators, wastewater treatment operators, distribution operators, collection operators, and specialized certifications like backflow prevention.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">8. What if I can't find a specific operator?</div>
+          <div class="faq-a">Try searching by partial name, license number, or city. If an operator still doesn't appear, they may be licensed in a different state or their certification may have lapsed.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">9. How do I know if an operator is qualified for my facility?</div>
+          <div class="faq-a">Match the operator's certification level to your facility's classification. State regulations require operators to hold a certificate equal to or higher than the facility's classification.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">10. Can operators be licensed in multiple states?</div>
+          <div class="faq-a">Yes, many operators hold certifications in multiple states. Some states have reciprocity agreements that allow easier transfer of credentials.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">11. What does "operator of record" mean?</div>
+          <div class="faq-a">The operator of record is the certified professional responsible for the day-to-day operation of a water or wastewater facility. They must hold the appropriate certification for that facility's classification.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">12. How do I verify if a license is still valid?</div>
+          <div class="faq-a">Check the expiration date shown in the directory, or visit your <a href="agencies.html">state regulatory agency's</a> official lookup tool for real-time verification.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">13. What's the difference between water treatment and water distribution operators?</div>
+          <div class="faq-a">Water treatment operators manage the process of treating raw water to make it safe for drinking. Distribution operators maintain the pipe networks that deliver treated water to customers.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">14. Can I search for temporary or substitute operators?</div>
+          <div class="faq-a">Yes, many licensed operators are available for temporary assignments, vacation coverage, or emergency response. Use the contact feature to inquire about availability.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">15. What is a Class A vs Class D water operator?</div>
+          <div class="faq-a">Classification systems vary by state. Generally, Class A (or Grade 4) represents the highest level of certification for the most complex facilities, while Class D (or Grade 1) is entry-level for smaller systems.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">16. How do I find operators with specialized certifications?</div>
+          <div class="faq-a">Use the "License Type" filter to search for specialized credentials like backflow prevention, landscape irrigation, OSSF (on-site sewage), or industrial pretreatment.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">17. What should I include in a job posting for water operators?</div>
+          <div class="faq-a">Include facility classification, required certification level, location, salary range, benefits, and whether the position is for operator of record or support staff.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">18. Can municipalities use this directory to find contract operators?</div>
+          <div class="faq-a">Yes, many operators offer contract services for cities and municipalities that don't employ full-time certified staff. Contact operators directly to discuss consulting arrangements.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">19. What's the typical response time when contacting an operator?</div>
+          <div class="faq-a">Response times vary, but most operators who maintain active profiles respond within 24-48 hours. For urgent needs, consider contacting multiple qualified candidates.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">20. How can I claim my operator profile in the directory?</div>
+          <div class="faq-a">Click the "Claim" button on your listing and submit verification information. Once approved, you can manage your profile, update contact preferences, and receive job opportunities.</div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: Licensing & Certification -->
+      <section id="licensing" class="faq-section">
+        <h2>Licensing & Certification Requirements</h2>
+
+        <div class="faq-item">
+          <div class="faq-q">21. How do I become a licensed water operator?</div>
+          <div class="faq-a">Requirements vary by state but generally include: completing approved training, gaining work experience under a licensed operator, and passing a state certification exam. Visit your <a href="agencies.html">state agency</a> for specific requirements.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">22. What education is required to become a water operator?</div>
+          <div class="faq-a">Most states require a high school diploma or GED. Some states accept technical training or college coursework in environmental science, engineering, or related fields.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">23. How long does it take to get a water operator license?</div>
+          <div class="faq-a">Entry-level certification can take 6-12 months including training and exam preparation. Advancing to higher levels typically requires 1-4 years of documented experience per level.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">24. Do I need experience before taking the certification exam?</div>
+          <div class="faq-a">Most states require documented work experience at a water or wastewater facility. Entry-level certifications may accept training hours, but higher levels require supervised operational experience.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">25. What topics are covered on the water operator certification exam?</div>
+          <div class="faq-a">Exams typically cover water chemistry, microbiology, hydraulics, treatment processes, regulations, mathematics, safety, and troubleshooting. The Association of Boards of Certification (ABC) develops standardized exams used by many states.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">26. How much does it cost to get a water operator license?</div>
+          <div class="faq-a">Fees vary by state but typically include: application fee ($25-$100), exam fee ($50-$200), and initial license fee ($50-$150). Training courses range from free to $500+.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">27. How often do I need to renew my water operator license?</div>
+          <div class="faq-a">Most states require renewal every 1-3 years. Renewal typically requires continuing education credits (CEUs) and payment of a renewal fee.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">28. What are continuing education units (CEUs) for water operators?</div>
+          <div class="faq-a">CEUs (or contact hours) are credits earned through approved training courses, conferences, webinars, or workshops. Most states require 1.0-3.0 CEUs per year to maintain certification.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">29. Can I get my license in one state and work in another?</div>
+          <div class="faq-a">Some states have reciprocity agreements allowing transfer of credentials. Others require passing their specific exam. Check with both states' regulatory agencies for transfer procedures.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">30. What happens if my license expires?</div>
+          <div class="faq-a">Expired licenses typically have a grace period (30-90 days) for late renewal with penalties. After that, you may need to retake exams or complete additional requirements to reinstate.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">31. Do water and wastewater operators need separate licenses?</div>
+          <div class="faq-a">In most states, yes. Water treatment, water distribution, wastewater treatment, and wastewater collection each require separate certifications, though some states offer combined credentials.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">32. What is the difference between ABC and state certification?</div>
+          <div class="faq-a">ABC (Association of Boards of Certification) develops standardized exams used by many states. Your actual license is issued by your state regulatory agency, but it may be based on ABC exams.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">33. Can I take the certification exam online?</div>
+          <div class="faq-a">Some states now offer remote proctored exams, especially after COVID-19. However, many still require in-person testing at designated locations. Check your state's current policies.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">34. What is operator certification reciprocity?</div>
+          <div class="faq-a">Reciprocity allows operators licensed in one state to obtain certification in another state without retaking exams, usually by demonstrating equivalent credentials and experience.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">35. How do I prepare for the water operator certification exam?</div>
+          <div class="faq-a">Use ABC study guides, take approved training courses, join study groups, practice with sample exams, and gain hands-on experience at a water facility. Many state agencies offer exam prep resources.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">36. What is the pass rate for water operator exams?</div>
+          <div class="faq-a">Pass rates vary by level and state, typically ranging from 60-85%. Entry-level exams generally have higher pass rates than advanced certifications.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">37. Can I challenge the exam without taking a training course?</div>
+          <div class="faq-a">Many states allow experienced individuals to sit for exams based on documented work experience alone, without mandatory training courses. Requirements vary by state and certification level.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">38. What is a provisional or temporary operator license?</div>
+          <div class="faq-a">Some states issue provisional licenses allowing individuals to work under supervision while gaining experience and preparing for certification exams. These typically expire after 1-2 years.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">39. Do I need a license to work at a water treatment plant?</div>
+          <div class="faq-a">Not all positions require licenses. Entry-level technicians and trainees can often work under supervision, but the operator of record and shift supervisors must hold appropriate certifications.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">40. What math skills do I need for water operator certification?</div>
+          <div class="faq-a">You'll need algebra, geometry, and basic calculations including flow rates, chemical dosing, detention time, percent removal, and unit conversions. Most exams allow calculators.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">41. Are there different certifications for different treatment technologies?</div>
+          <div class="faq-a">Some states offer specialized endorsements for technologies like membrane filtration, UV disinfection, or advanced oxidation. Most general certifications cover conventional treatment processes.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">42. How do I document my work experience for certification?</div>
+          <div class="faq-a">Keep detailed logs of work hours, tasks performed, and technologies operated. Most states require verification forms signed by a supervising licensed operator or facility manager.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">43. Can military experience count toward operator certification?</div>
+          <div class="faq-a">Many states recognize military water/wastewater training and experience. Veterans should contact their state agency about credential evaluation and potential exam waivers.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">44. What is backflow prevention certification?</div>
+          <div class="faq-a">Backflow prevention specialists test and maintain devices that prevent contaminated water from flowing back into potable water systems. This is a separate certification from water operator licenses.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">45. Do I need a commercial driver's license (CDL) as a water operator?</div>
+          <div class="faq-a">CDLs are generally not required unless your job involves operating heavy trucks for biosolids hauling or chemical delivery. Check with your specific employer.</div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: State-Specific Information -->
+      <section id="state-specific" class="faq-section">
+        <h2>State-Specific Information</h2>
+
+        <div class="faq-item">
+          <div class="faq-q">46. Where can I find my state's water operator certification requirements?</div>
+          <div class="faq-a">Visit our <a href="agencies.html">Regulatory Agencies</a> page for direct links to all 50 states' operator certification programs and licensing boards.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">47. Does Texas require water operator certification?</div>
+          <div class="faq-a">Yes, Texas requires certification for operators of public water systems through the Texas Commission on Environmental Quality (TCEQ). Requirements vary by system size and type.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">48. How do I verify a water operator license in California?</div>
+          <div class="faq-a">Visit the California State Water Resources Control Board's operator certification website or search their online database. You can also use our directory to find California-licensed operators.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">49. What states have reciprocity agreements for water operator licenses?</div>
+          <div class="faq-a">Reciprocity varies widely. Some states have formal agreements, while others evaluate credentials case-by-case. Contact your target state's certification board for current reciprocity policies.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">50. Does Florida recognize out-of-state water operator certifications?</div>
+          <div class="faq-a">Florida has limited reciprocity. Check with the Florida Department of Environmental Protection for current policies on transferring certifications from other states.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">51. How do New York water operator requirements differ from other states?</div>
+          <div class="faq-a">New York uses a Grade system (1A-4C) and has specific requirements for different water system types. The NY State Department of Health administers the certification program.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">52. What are Ohio's continuing education requirements for water operators?</div>
+          <div class="faq-a">Ohio requires operators to complete continuing education based on their certification class. Visit the Ohio EPA's operator certification website for specific CEU requirements.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">53. Does Illinois require separate certifications for water and wastewater?</div>
+          <div class="faq-a">Yes, Illinois requires separate certifications for water supply, water distribution, wastewater, and wastewater collection. Each has distinct exam and experience requirements.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">54. How do I transfer my water operator license to a new state?</div>
+          <div class="faq-a">Contact the new state's certification agency with your current credentials. You may need to: submit an application, provide proof of certification, pass their exam, or meet additional requirements. See our <a href="agencies.html">state agencies page</a>.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">55. What is Pennsylvania's water operator certification process?</div>
+          <div class="faq-a">Pennsylvania's Department of Environmental Protection administers certification exams and requires documented experience. The state uses Class A through Class E classifications.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">56. Does Georgia accept ABC exam scores for certification?</div>
+          <div class="faq-a">Many states including Georgia use ABC exams. Check with Georgia's Environmental Protection Division to confirm current exam requirements and acceptance policies.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">57. What are North Carolina's small system operator requirements?</div>
+          <div class="faq-a">North Carolina has specific certifications for small water systems. The Water Resources Section of NC DEQ provides guidance on small system operator requirements.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">58. How does Arizona classify water treatment facilities?</div>
+          <div class="faq-a">Arizona uses a 4-tier classification system for water facilities. The Arizona Department of Environmental Quality (ADEQ) provides facility classification criteria and operator certification requirements.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">59. What training programs are available in Michigan for water operators?</div>
+          <div class="faq-a">Michigan has several community colleges and technical schools offering water operator training. The Michigan Department of Environment, Great Lakes, and Energy (EGLE) maintains a list of approved training providers.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">60. Does Washington state require master's level certification?</div>
+          <div class="faq-a">Washington's Department of Health administers operator certification with multiple levels including Backflow Assembly Tester, Water Distribution Manager, and Water Treatment Plant Operator certifications.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">61. How do I look up a licensed operator in New Jersey?</div>
+          <div class="faq-a">Use the New Jersey DEP's operator certification database or search our directory filtering by state. You'll need the operator's name or license number for verification.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">62. What is Colorado's approach to small water system operators?</div>
+          <div class="faq-a">Colorado has specific certification pathways for small water systems through the Department of Public Health and Environment, with reduced requirements for very small systems serving fewer than 500 people.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">63. Does Massachusetts require background checks for water operators?</div>
+          <div class="faq-a">Some states and utilities require background checks for water operator positions, especially for facility access. Check with the specific utility or Massachusetts DEP for requirements.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">64. What are Virginia's water operator license renewal deadlines?</div>
+          <div class="faq-a">Virginia Department of Health sets specific renewal periods. License holders receive renewal notices, but it's the operator's responsibility to maintain current certification and submit renewals on time.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">65. How does Minnesota classify wastewater treatment operators?</div>
+          <div class="faq-a">Minnesota uses Classes A through D for wastewater operators, administered by the Minnesota Pollution Control Agency. Requirements increase with facility complexity and size.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">66. What specialized certifications does Louisiana offer?</div>
+          <div class="faq-a">Louisiana offers certifications in water treatment, water distribution, wastewater treatment, wastewater collection, and specialized areas like laboratory analysis through the Department of Health.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">67. Does Oregon have continuing education requirements?</div>
+          <div class="faq-a">Yes, Oregon requires continuing education for license renewal. The Oregon Health Authority specifies the number of contact hours required based on certification level.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">68. What is Tennessee's operator certification exam schedule?</div>
+          <div class="faq-a">Tennessee offers certification exams at scheduled locations throughout the year. Contact the Tennessee Department of Environment and Conservation for current exam dates and registration.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">69. How do I get certified as a water operator in Indiana?</div>
+          <div class="faq-a">Apply through the Indiana Department of Environmental Management (IDEM), meet experience requirements, and pass the certification exam. Indiana recognizes ABC exams for water and wastewater operators.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">70. What are Wisconsin's unique water operator requirements?</div>
+          <div class="faq-a">Wisconsin requires certification for waterworks and wastewater operators through the Department of Natural Resources. The state has specific requirements for small community systems and mobile home parks.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">71. Does Alabama offer emergency certification for water operators?</div>
+          <div class="faq-a">Some states provide emergency or temporary certifications during operator shortages or disasters. Contact the Alabama Department of Environmental Management for current emergency certification policies.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">72. What is South Carolina's Environmental Certification Board?</div>
+          <div class="faq-a">South Carolina's LLR Environmental Certification Board administers operator certification for water, wastewater, and related environmental professionals. They maintain licensure databases and set continuing education requirements.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">73. How does Iowa handle operator-in-training status?</div>
+          <div class="faq-a">Iowa allows individuals to work as operators-in-training while gaining experience and preparing for certification exams. The Iowa DNR specifies the requirements and limitations for OIT status.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">74. What are Kansas's requirements for rural water district operators?</div>
+          <div class="faq-a">Kansas requires certification for public water system operators including rural water districts. The Kansas Department of Health and Environment administers the certification program with classifications based on system size.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">75. Where can I find a complete list of state regulatory agencies?</div>
+          <div class="faq-a">Visit our <a href="agencies.html">Regulatory Agencies page</a> for direct links to all 50 state water and wastewater operator certification programs, licensing boards, and official lookup databases.</div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    const savedTheme = localStorage.getItem('wonTheme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('wonTheme', next);
+    });
+  </script>
+</body>
+</html>

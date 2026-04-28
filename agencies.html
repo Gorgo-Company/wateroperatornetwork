@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>State Water Regulatory Agencies — Water Operator Network</title>
+  <meta name="description" content="Find your state's water and wastewater regulatory agency. Direct links to drinking water programs, licensing boards, and operator databases for all 50 states." />
+  <meta name="keywords" content="water regulatory agency, state licensing board, water operator certification, drinking water program, EPA state programs" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --bg: #f4f7f5; --surface: #ffffff; --surface-2: #eef2ef; --border: #d4ddd8; --border-soft: rgba(180,200,190,0.5);
+      --text: #1a2420; --text-2: #3d5048; --muted: #6b837a; --muted-2: #94aaa2;
+      --primary: #0e6a70; --primary-mid: #128a91; --primary-hi: #17adb5; --primary-glow: rgba(14,106,112,0.12); --primary-soft: #d6edee;
+      --teal: #00c4a0; --teal-soft: #d0f4ed; --radius: 16px; --radius-sm: 10px;
+      --shadow-sm: 0 1px 4px rgba(20,40,34,0.07), 0 4px 16px rgba(20,40,34,0.05);
+      --shadow: 0 2px 8px rgba(20,40,34,0.08), 0 8px 32px rgba(20,40,34,0.07);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max: 1200px; --transition: 0.17s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    [data-theme="dark"] {
+      --bg: #0d1512; --surface: #131e1a; --surface-2: #192420; --border: #253530; --border-soft: rgba(50,80,68,0.5);
+      --text: #dceae4; --text-2: #9dbfb3; --muted: #607870; --muted-2: #405850;
+      --primary: #3abfc6; --primary-mid: #2da8af; --primary-hi: #52d1d8; --primary-glow: rgba(58,191,198,0.1); --primary-soft: #0e2d30;
+      --teal: #20d8b4; --teal-soft: #0e2f28;
+      --shadow-sm: 0 1px 4px rgba(0,0,0,0.25), 0 4px 16px rgba(0,0,0,0.2);
+      --shadow: 0 2px 8px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.25);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+    .shell { max-width: var(--max); margin: 0 auto; padding: 0 24px 80px; }
+    
+    /* Topbar */
+    .topbar { position: sticky; top: 0; z-index: 100; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-soft); }
+    .topbar-inner { max-width: var(--max); margin: 0 auto; padding: 0 24px; height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 11px; }
+    .brand-mark { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(145deg, var(--primary), var(--primary-hi)); display: grid; place-items: center; box-shadow: 0 2px 12px var(--primary-glow); flex-shrink: 0; }
+    .brand-text strong { display: block; font-size: 0.95rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; line-height: 1.2; }
+    .brand-text span { display: block; font-size: 0.72rem; color: var(--muted); font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--muted); transition: color var(--transition); position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--primary); transform: scaleX(0); transition: transform var(--transition); border-radius: 2px; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+    .theme-btn { width: 36px; height: 36px; border-radius: 9px; background: var(--surface-2); border: 1px solid var(--border); color: var(--muted); cursor: pointer; display: grid; place-items: center; transition: all var(--transition); }
+    .theme-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .theme-btn svg { width: 16px; height: 16px; }
+    [data-theme="dark"] .icon-sun { display: block; } [data-theme="dark"] .icon-moon { display: none; }
+    [data-theme="light"] .icon-sun { display: none; } [data-theme="light"] .icon-moon { display: block; }
+    
+    /* Page hero */
+    .page-hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); }
+    .page-hero h1 { font-size: clamp(2rem, 3vw + 0.5rem, 3rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; color: var(--text); margin-bottom: 12px; }
+    .page-hero p { font-size: 0.975rem; color: var(--muted); max-width: 60ch; line-height: 1.7; }
+    
+    /* Content */
+    .page-content { padding: 40px 0; }
+    .state-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-top: 24px; }
+    .state-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; transition: all var(--transition); }
+    .state-card:hover { border-color: color-mix(in srgb, var(--primary) 50%, var(--border)); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+    .state-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .state-card p { font-size: 0.82rem; color: var(--muted); margin-bottom: 12px; }
+    .state-links { display: flex; flex-direction: column; gap: 6px; }
+    .state-link { font-size: 0.82rem; font-weight: 500; color: var(--primary); display: flex; align-items: center; gap: 6px; transition: gap var(--transition); }
+    .state-link:hover { gap: 10px; color: var(--primary-mid); }
+    
+    @media (max-width: 960px) { .nav-links { display: none; } }
+    @media (max-width: 680px) { .shell { padding: 0 16px 60px; } .state-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2.5C9.2 6.2 5.5 10 5.5 14.5C5.5 18.64 8.86 22 12.5 22C16.14 22 19.5 18.64 19.5 14.5C19.5 10 15.8 6.2 12 2.5Z" fill="white" opacity="0.35"/>
+            <path d="M12 4.5C9.4 7.6 7 10.5 7 14.2C7 17.15 9.48 19.5 12.2 19.5C14.92 19.5 17.4 17.15 17.4 14.2C17.4 10.5 15 7.6 12 4.5Z" stroke="white" stroke-width="1.6" fill="none"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <strong>Water Operator Network</strong>
+          <span>Nationwide Directory</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Directory</a>
+        <a href="agencies.html" class="active">Regulatory Agencies</a>
+        <a href="training.html">Training</a>
+        <a href="faq.html">FAQs</a>
+      </nav>
+      <button class="theme-btn" id="themeBtn">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="page-hero">
+      <h1>State Regulatory Agencies</h1>
+      <p>Find your state's drinking water program and operator certification board. Direct links to licensing, certification programs, and operator lookup databases.</p>
+    </section>
+
+    <div class="page-content">
+      <div class="state-grid">
+        
+        <div class="state-card">
+          <h3>Alabama</h3>
+          <p>Alabama Department of Environmental Management</p>
+          <div class="state-links">
+            <a class="state-link" href="https://adem.alabama.gov/programs/water/drinkingwater.cnt" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Alaska</h3>
+          <p>Alaska Department of Environmental Conservation</p>
+          <div class="state-links">
+            <a class="state-link" href="https://dec.alaska.gov/water/drinking-water/" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Arizona</h3>
+          <p>Arizona Department of Environmental Quality</p>
+          <div class="state-links">
+            <a class="state-link" href="https://azdeq.gov/drinking-water" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Arkansas</h3>
+          <p>Arkansas Department of Health</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.healthy.arkansas.gov/programs-services/topics/public-water-systems" target="_blank" rel="noopener">Public Water Systems →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>California</h3>
+          <p>California State Water Resources Control Board</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.waterboards.ca.gov/drinking_water/certlic/occupations/DWopcert.html" target="_blank" rel="noopener">Drinking Water Operator Certification →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Colorado</h3>
+          <p>Colorado Department of Public Health and Environment</p>
+          <div class="state-links">
+            <a class="state-link" href="https://cdphe.colorado.gov/water-quality-division/drinking-water-program" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Connecticut</h3>
+          <p>Connecticut Department of Public Health</p>
+          <div class="state-links">
+            <a class="state-link" href="https://portal.ct.gov/DPH/Drinking-Water/DWS/Drinking-Water-Section" target="_blank" rel="noopener">Drinking Water Section →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Delaware</h3>
+          <p>Delaware Division of Public Health</p>
+          <div class="state-links">
+            <a class="state-link" href="https://dhss.delaware.gov/dhss/dph/hsp/drinkingwater.html" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Florida</h3>
+          <p>Florida Department of Environmental Protection</p>
+          <div class="state-links">
+            <a class="state-link" href="https://floridadep.gov/water/source-drinking-water" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Georgia</h3>
+          <p>Georgia Environmental Protection Division</p>
+          <div class="state-links">
+            <a class="state-link" href="https://epd.georgia.gov/drinking-water" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Hawaii</h3>
+          <p>Hawaii Department of Health</p>
+          <div class="state-links">
+            <a class="state-link" href="https://health.hawaii.gov/sdwb/" target="_blank" rel="noopener">Safe Drinking Water Branch →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Idaho</h3>
+          <p>Idaho Department of Environmental Quality</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.deq.idaho.gov/water-quality/drinking-water/" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Illinois</h3>
+          <p>Illinois Environmental Protection Agency</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www2.illinois.gov/epa/topics/water-quality/public-water-supply/Pages/default.aspx" target="_blank" rel="noopener">Public Water Supply Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Indiana</h3>
+          <p>Indiana Department of Environmental Management</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.in.gov/idem/cleanwater/operator-certification/" target="_blank" rel="noopener">Operator Certification →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Iowa</h3>
+          <p>Iowa Department of Natural Resources</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.iowadnr.gov/environmental-protection/water-quality/water-supply-engineering" target="_blank" rel="noopener">Water Supply Engineering →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Kansas</h3>
+          <p>Kansas Department of Health and Environment</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.kdhe.ks.gov/188/Public-Water-Supply" target="_blank" rel="noopener">Public Water Supply →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Kentucky</h3>
+          <p>Kentucky Division of Water</p>
+          <div class="state-links">
+            <a class="state-link" href="https://eec.ky.gov/Environmental-Protection/Water/Pages/Drinking-Water.aspx" target="_blank" rel="noopener">Drinking Water Branch →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Louisiana</h3>
+          <p>Louisiana Department of Health</p>
+          <div class="state-links">
+            <a class="state-link" href="https://ldh.la.gov/page/drinking-water" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Maine</h3>
+          <p>Maine Department of Health and Human Services</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.maine.gov/dhhs/mecdc/environmental-health/water/operator/" target="_blank" rel="noopener">Operator Certification →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Maryland</h3>
+          <p>Maryland Department of the Environment</p>
+          <div class="state-links">
+            <a class="state-link" href="https://mde.maryland.gov/programs/water/water_supply/Pages/index.aspx" target="_blank" rel="noopener">Water Supply Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Massachusetts</h3>
+          <p>Massachusetts Department of Environmental Protection</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.mass.gov/orgs/drinking-water-program" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Michigan</h3>
+          <p>Michigan Department of Environment, Great Lakes, and Energy</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.michigan.gov/egle/about/organization/drinking-water-and-environmental-health" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Minnesota</h3>
+          <p>Minnesota Department of Health</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.health.state.mn.us/communities/environment/water/com/index.html" target="_blank" rel="noopener">Drinking Water Protection →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Mississippi</h3>
+          <p>Mississippi State Department of Health</p>
+          <div class="state-links">
+            <a class="state-link" href="https://msdh.ms.gov/page/30,0,150.html" target="_blank" rel="noopener">Public Water Supply →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Missouri</h3>
+          <p>Missouri Department of Natural Resources</p>
+          <div class="state-links">
+            <a class="state-link" href="https://dnr.mo.gov/water/business-industry-other-entities/public-drinking-water" target="_blank" rel="noopener">Public Drinking Water →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Montana</h3>
+          <p>Montana Department of Environmental Quality</p>
+          <div class="state-links">
+            <a class="state-link" href="https://deq.mt.gov/Water/pwsup" target="_blank" rel="noopener">Public Water Supply →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Nebraska</h3>
+          <p>Nebraska Department of Environment and Energy</p>
+          <div class="state-links">
+            <a class="state-link" href="https://dee.ne.gov/NDEQProg.nsf/OnWeb/PWS" target="_blank" rel="noopener">Public Water Supply →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Nevada</h3>
+          <p>Nevada Division of Environmental Protection</p>
+          <div class="state-links">
+            <a class="state-link" href="https://ndep.nv.gov/water/public-drinking-water" target="_blank" rel="noopener">Public Drinking Water →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>New Hampshire</h3>
+          <p>New Hampshire Department of Environmental Services</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.des.nh.gov/water/drinking-water" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>New Jersey</h3>
+          <p>New Jersey Department of Environmental Protection</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.nj.gov/dep/watersupply/" target="_blank" rel="noopener">Water Supply Administration →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>New Mexico</h3>
+          <p>New Mexico Environment Department</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.env.nm.gov/drinking-water/" target="_blank" rel="noopener">Drinking Water Bureau →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>New York</h3>
+          <p>New York State Department of Health</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.health.ny.gov/environmental/water/drinking/" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>North Carolina</h3>
+          <p>North Carolina Department of Environmental Quality</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.ncwater.org/" target="_blank" rel="noopener">Public Water Supply →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>North Dakota</h3>
+          <p>North Dakota Department of Environmental Quality</p>
+          <div class="state-links">
+            <a class="state-link" href="https://deq.nd.gov/WQ/3_Munic_Rural_WS/3_Munic_Rural_WS.aspx" target="_blank" rel="noopener">Municipal & Rural Water Supply →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Ohio</h3>
+          <p>Ohio Environmental Protection Agency</p>
+          <div class="state-links">
+            <a class="state-link" href="https://epa.ohio.gov/divisions-and-offices/drinking-and-ground-waters" target="_blank" rel="noopener">Drinking & Ground Waters →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Oklahoma</h3>
+          <p>Oklahoma Department of Environmental Quality</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.deq.ok.gov/water-quality-division/public-water-supply/" target="_blank" rel="noopener">Public Water Supply →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Oregon</h3>
+          <p>Oregon Health Authority</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.oregon.gov/oha/ph/healthyenvironments/drinkingwater/pages/index.aspx" target="_blank" rel="noopener">Drinking Water Services →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Pennsylvania</h3>
+          <p>Pennsylvania Department of Environmental Protection</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.dep.pa.gov/Business/Water/BureauSafeDrinkingWater/Pages/default.aspx" target="_blank" rel="noopener">Safe Drinking Water →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Rhode Island</h3>
+          <p>Rhode Island Department of Health</p>
+          <div class="state-links">
+            <a class="state-link" href="https://health.ri.gov/water/drinking/" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>South Carolina</h3>
+          <p>South Carolina Department of Health and Environmental Control</p>
+          <div class="state-links">
+            <a class="state-link" href="https://scdhec.gov/environment/your-water-coast/public-water-systems" target="_blank" rel="noopener">Public Water Systems →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>South Dakota</h3>
+          <p>South Dakota Department of Agriculture and Natural Resources</p>
+          <div class="state-links">
+            <a class="state-link" href="https://danr.sd.gov/Environment/WaterQuality/DrinkingWater.aspx" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Tennessee</h3>
+          <p>Tennessee Department of Environment and Conservation</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.tn.gov/environment/program-areas/wr-water-resources/water-quality/public-water-systems.html" target="_blank" rel="noopener">Public Water Systems →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Texas</h3>
+          <p>Texas Commission on Environmental Quality (TCEQ)</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.tceq.texas.gov/drinkingwater" target="_blank" rel="noopener">Drinking Water →</a>
+            <a class="state-link" href="https://www15.tceq.texas.gov/crpub/" target="_blank" rel="noopener">License Lookup →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Utah</h3>
+          <p>Utah Division of Drinking Water</p>
+          <div class="state-links">
+            <a class="state-link" href="https://deq.utah.gov/drinking-water" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Vermont</h3>
+          <p>Vermont Department of Environmental Conservation</p>
+          <div class="state-links">
+            <a class="state-link" href="https://dec.vermont.gov/water/drinking-water-and-groundwater/dwgwp" target="_blank" rel="noopener">Drinking Water & Groundwater →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Virginia</h3>
+          <p>Virginia Department of Health</p>
+          <div class="state-links">
+            <a class="state-link" href="https://www.vdh.virginia.gov/drinking-water/" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Washington</h3>
+          <p>Washington Department of Health</p>
+          <div class="state-links">
+            <a class="state-link" href="https://doh.wa.gov/community-and-environment/drinking-water" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>West Virginia</h3>
+          <p>West Virginia Department of Health and Human Resources</p>
+          <div class="state-links">
+            <a class="state-link" href="https://dhhr.wv.gov/oehs/eed/swap/Pages/default.aspx" target="_blank" rel="noopener">Public Water Supply →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Wisconsin</h3>
+          <p>Wisconsin Department of Natural Resources</p>
+          <div class="state-links">
+            <a class="state-link" href="https://dnr.wisconsin.gov/topic/DrinkingWater" target="_blank" rel="noopener">Drinking Water Program →</a>
+          </div>
+        </div>
+
+        <div class="state-card">
+          <h3>Wyoming</h3>
+          <p>Wyoming Department of Environmental Quality</p>
+          <div class="state-links">
+            <a class="state-link" href="https://deq.wyoming.gov/wqd/watershed-protection/public-water-supply/" target="_blank" rel="noopener">Public Water Supply →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const savedTheme = localStorage.getItem('wonTheme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('wonTheme', next);
+    });
+  </script>
+</body>
+</html>
