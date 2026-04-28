@@ -441,10 +441,10 @@
       letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
       min-width: 150px; flex: 1.8;
     }
-    .card-sep { width: 1px; height: 20px; background: var(--border); flex-shrink: 0; }
+    .card-sep { display: none; }
     .card-meta-field { flex: 1; min-width: 0; }
     .card-meta-label {
-      font-size: 0.6rem; font-weight: 700; color: var(--muted-2);
+      font-size: 0.55rem; font-weight: 700; color: var(--muted-2);
       text-transform: uppercase; letter-spacing: 0.07em; line-height: 1;
       margin-bottom: 2px;
     }
@@ -510,97 +510,85 @@
     .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
 
     /* ============================================================
-       DETAIL PANEL (right sidebar)
+       DETAIL PANEL (right sidebar) — compact report card
     ============================================================ */
     .detail-panel {
       position: sticky;
-      top: 168px; /* topbar(62) + filters bar(~86) + gap(20) */
+      top: 168px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
-    .detail-panel-header {
-      padding: 18px 20px 14px;
+
+    /* Teal-tinted header strip */
+    .dp-head {
+      padding: 13px 16px 11px;
+      background: color-mix(in srgb, var(--primary-soft) 45%, var(--surface));
+      border-bottom: 1px solid color-mix(in srgb, var(--primary) 18%, var(--border));
+    }
+    .dp-eyebrow {
+      font-size: 0.58rem; font-weight: 700; color: var(--primary);
+      text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 4px;
+    }
+    .dp-name {
+      font-size: 1rem; font-weight: 800; color: var(--text);
+      letter-spacing: -0.025em; line-height: 1.2; margin-bottom: 2px;
+    }
+    .dp-type { font-size: 0.75rem; color: var(--muted); font-weight: 400; }
+
+    /* 2-col mini grid of data fields */
+    .dp-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0;
       border-bottom: 1px solid var(--border);
     }
-    .detail-label {
-      font-size: 0.67rem;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      margin-bottom: 6px;
+    .dp-cell {
+      padding: 8px 14px;
+      border-right: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
     }
-    .detail-name {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 4px;
+    .dp-cell:nth-child(even) { border-right: none; }
+    .dp-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .dp-cell-label {
+      font-size: 0.57rem; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 3px;
     }
-    .detail-sub { font-size: 0.85rem; color: var(--muted); font-weight: 400; }
-
-    .detail-body { padding: 16px 20px; }
-
-    .detail-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-    .detail-field {
-      background: var(--surface-2);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius-sm);
-      padding: 10px 12px;
-    }
-    .detail-field-label {
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      margin-bottom: 4px;
-    }
-    .detail-field-value {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text);
+    .dp-cell-value {
+      font-size: 0.82rem; font-weight: 600; color: var(--text);
       word-break: break-word;
     }
+    .dp-cell-value.mono { font-family: monospace; font-size: 0.78rem; letter-spacing: 0.03em; }
 
-    .contact-row {
-      background: var(--surface-2);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius-sm);
-      padding: 12px;
-      margin-bottom: 14px;
-      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    /* Contact strip */
+    .dp-contact {
+      padding: 8px 16px 9px;
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--primary) 3%, var(--surface));
     }
-    .contact-blurred {
-      font-size: 0.85rem;
-      color: var(--muted);
-      filter: blur(5px);
-      user-select: none;
+    .dp-contact-label {
+      font-size: 0.57rem; font-weight: 700; color: var(--primary);
+      text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 2px;
     }
-    .contact-note {
-      font-size: 0.72rem;
-      color: var(--muted);
-      margin-top: 4px;
-      font-weight: 500;
+    .dp-blurred {
+      font-size: 0.78rem; color: var(--muted);
+      filter: blur(4.5px); user-select: none;
+    }
+    .dp-note { font-size: 0.63rem; color: var(--muted); margin-top: 1px; font-style: italic; }
+
+    /* 3 small CTA buttons */
+    .dp-ctas {
+      padding: 10px 14px;
+      display: flex; gap: 6px;
+    }
+    .dp-ctas .btn {
+      flex: 1; justify-content: center;
+      padding: 7px 6px;
+      font-size: 0.75rem;
     }
 
-    .detail-ctas { display: flex; flex-direction: column; gap: 8px; }
-    .detail-ctas .btn { justify-content: center; }
-    .btn-full { width: 100%; }
-
-    .empty-detail {
-      padding: 40px 24px;
-      text-align: center;
-    }
+    .empty-detail { padding: 40px 24px; text-align: center; }
     .empty-detail p { color: var(--muted); font-size: 0.9rem; font-weight: 400; }
 
     /* ============================================================
@@ -1455,60 +1443,54 @@
     function renderDetail() {
       const r = activeRec;
       if (!r) {
-        els.detailPanel.innerHTML = `<div class="empty-detail"><p>Select an operator to view their full profile</p></div>`;
+        els.detailPanel.innerHTML = `<div class="empty-detail"><p>Select an operator to view their profile</p></div>`;
         return;
       }
       const st = statusTag(r);
       els.detailPanel.innerHTML = `
-        <div class="detail-panel-header">
-          <div class="detail-label">Selected operator</div>
-          <div class="detail-name">${htmlEsc(r.full_name)}</div>
-          <div class="detail-sub">${htmlEsc(r.license_type || 'Licensed Professional')}</div>
+        <div class="dp-head">
+          <div class="dp-eyebrow">Selected Operator</div>
+          <div class="dp-name">${htmlEsc(r.full_name)}</div>
+          <div class="dp-type">${htmlEsc(r.license_type || 'Licensed Professional')}</div>
         </div>
-        <div class="detail-body">
-          <div class="detail-grid">
-            <div class="detail-field">
-              <div class="detail-field-label">State</div>
-              <div class="detail-field-value">${r.state || '—'}</div>
-            </div>
-            <div class="detail-field">
-              <div class="detail-field-label">Status</div>
-              <div class="detail-field-value"><span class="tag ${st.cls}" style="font-size:0.72rem">${st.label}</span></div>
-            </div>
-            <div class="detail-field">
-              <div class="detail-field-label">License #</div>
-              <div class="detail-field-value">${htmlEsc(r.license_number_public_masked || '—')}</div>
-            </div>
-            <div class="detail-field">
-              <div class="detail-field-label">Level</div>
-              <div class="detail-field-value">${r.license_level ? 'Level ' + r.license_level : '—'}</div>
-            </div>
-            <div class="detail-field">
-              <div class="detail-field-label">Expires</div>
-              <div class="detail-field-value">${fmtDate(r.expiration_date)}</div>
-            </div>
-            <div class="detail-field">
-              <div class="detail-field-label">Claimed</div>
-              <div class="detail-field-value">${r.claimed_profile ? '✓ Yes' : 'No'}</div>
-            </div>
+        <div class="dp-grid">
+          <div class="dp-cell">
+            <div class="dp-cell-label">Status</div>
+            <div class="dp-cell-value"><span class="tag ${st.cls}" style="font-size:.65rem;padding:2px 7px">${st.label}</span></div>
           </div>
-
-          <div class="contact-row">
-            <div>
-              <div class="detail-field-label" style="margin-bottom:4px;">Contact</div>
-              <div class="contact-blurred">operator@licensed.com</div>
-              <div class="contact-note">Masked — route through network</div>
-            </div>
+          <div class="dp-cell">
+            <div class="dp-cell-label">State</div>
+            <div class="dp-cell-value">${htmlEsc(r.state || '—')}</div>
           </div>
-
-          <div class="detail-ctas">
-            <button class="btn btn-primary btn-full" id="dpContact">Contact through network</button>
-            <button class="btn btn-ghost btn-full" id="dpClaim">Claim this profile</button>
-            ${r.source_url ? `<a class="btn btn-outline btn-full" href="${r.source_url}" target="_blank" rel="noopener" style="justify-content:center;text-decoration:none;">Open state source ↗</a>` : ''}
+          <div class="dp-cell">
+            <div class="dp-cell-label">License #</div>
+            <div class="dp-cell-value mono">${htmlEsc(r.license_number_public_masked || '—')}</div>
           </div>
+          <div class="dp-cell">
+            <div class="dp-cell-label">Level</div>
+            <div class="dp-cell-value">${r.license_level ? 'Level ' + r.license_level : '—'}</div>
+          </div>
+          <div class="dp-cell">
+            <div class="dp-cell-label">City</div>
+            <div class="dp-cell-value">${htmlEsc(r.city || '—')}</div>
+          </div>
+          <div class="dp-cell">
+            <div class="dp-cell-label">Expires</div>
+            <div class="dp-cell-value">${fmtDate(r.expiration_date)}</div>
+          </div>
+        </div>
+        <div class="dp-contact">
+          <div class="dp-contact-label">Contact</div>
+          <div class="dp-blurred">operator@licensed.com</div>
+          <div class="dp-note">Masked — routed through network</div>
+        </div>
+        <div class="dp-ctas">
+          <button class="btn btn-primary" id="dpView">View profile</button>
+          <button class="btn btn-ghost" id="dpContact">Contact</button>
+          <button class="btn btn-outline" id="dpClaim">Claim</button>
         </div>
       `;
-
+      document.getElementById('dpView').addEventListener('click', () => openProfileModal(r));
       document.getElementById('dpContact').addEventListener('click', () => openContact(r));
       document.getElementById('dpClaim').addEventListener('click', () => openClaim(r));
     }
