@@ -205,47 +205,47 @@
        HERO
     ============================================================ */
     .hero {
-      padding: 48px 0 28px;
+      padding: 20px 0 14px;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 32px;
-      align-items: start;
+      gap: 24px;
+      align-items: center;
     }
 
     .eyebrow {
       display: inline-flex; align-items: center; gap: 7px;
-      padding: 6px 12px; border-radius: 100px;
+      padding: 5px 11px; border-radius: 100px;
       background: var(--primary-soft);
       color: var(--primary);
-      font-size: 0.7rem; font-weight: 600;
+      font-size: 0.68rem; font-weight: 600;
       letter-spacing: 0.06em; text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 8px;
     }
     .eyebrow-dot {
-      width: 6px; height: 6px; border-radius: 50%;
+      width: 5px; height: 5px; border-radius: 50%;
       background: var(--primary);
-      box-shadow: 0 0 6px var(--primary);
+      box-shadow: 0 0 5px var(--primary);
       animation: blink 2.4s ease-in-out infinite;
     }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 4.5vw + 0.5rem, 4.2rem);
+      font-size: clamp(1.6rem, 2.2vw + 0.5rem, 2.3rem);
       font-weight: 800;
-      line-height: 1.05;
+      line-height: 1.1;
       letter-spacing: -0.04em;
       color: var(--text);
-      margin-bottom: 14px;
+      margin-bottom: 6px;
     }
     .hero h1 em {
       font-style: normal;
       color: var(--primary);
     }
     .hero-sub {
-      font-size: 0.975rem;
+      font-size: 0.875rem;
       color: var(--muted);
-      max-width: 52ch;
-      line-height: 1.7;
+      max-width: 72ch;
+      line-height: 1.6;
       font-weight: 400;
     }
 
@@ -891,34 +891,35 @@
       content: ''; flex: 1; height: 1px; background: var(--border);
     }
 
-    /* 2-col report rows */
-    .pm-rows { display: flex; flex-direction: column; gap: 0; }
-    .pm-row {
-      display: grid; grid-template-columns: 140px 1fr;
-      gap: 8px; align-items: baseline;
-      padding: 7px 0;
-      border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+    /* Balanced cell grid — fills horizontal space */
+    .pm-cells {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
-    .pm-row:last-child { border-bottom: none; }
-    .pm-row-label {
-      font-size: 0.72rem; font-weight: 600; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 0.06em;
+    .pm-cells.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .pm-cell {
+      background: var(--surface-2);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
     }
-    .pm-row-value { font-size: 0.9rem; font-weight: 500; color: var(--text); }
-    .pm-row-value.mono { font-family: monospace; font-size: 0.85rem; letter-spacing: 0.03em; }
+    .pm-cell.wide { grid-column: span 2; }
+    .pm-cell-label {
+      font-size: 0.63rem; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;
+    }
+    .pm-cell-value { font-size: 0.92rem; font-weight: 600; color: var(--text); }
+    .pm-cell-value.mono { font-family: monospace; font-size: 0.84rem; letter-spacing: 0.03em; }
 
     /* Contact section */
     .pm-contact-section {
-      padding: 18px 28px;
+      padding: 16px 28px;
       background: color-mix(in srgb, var(--primary) 4%, var(--surface));
       border-bottom: 1px solid var(--border);
     }
-    .pm-contact-row {
-      display: grid; grid-template-columns: 140px 1fr;
-      gap: 8px; align-items: center; padding: 6px 0;
-    }
     .pm-contact-blurred { font-size: 0.9rem; color: var(--muted); filter: blur(5px); user-select: none; }
-    .pm-contact-note { font-size: 0.78rem; color: var(--muted); font-style: italic; margin-top: 8px; }
+    .pm-contact-note { font-size: 0.75rem; color: var(--muted); font-style: italic; margin-top: 10px; }
 
     /* Actions footer */
     .pm-footer {
@@ -972,7 +973,7 @@
           <span class="eyebrow-dot"></span>
           Licensed Professionals · All 50 States
         </div>
-        <h1>Find licensed<br/><em>water operators</em><br/>nationwide.</h1>
+        <h1>Find licensed <em>water operators</em> nationwide.</h1>
         <p class="hero-sub">Search operators by name, state, license type, or status. Verified state data. Contact operators through our network without exposing personal information.</p>
       </div>
       <div class="stat-strip" id="statStrip">
@@ -1514,74 +1515,73 @@
 
           <div class="pm-section">
             <div class="pm-section-title">License Information</div>
-            <div class="pm-rows">
-              <div class="pm-row">
-                <span class="pm-row-label">License Number</span>
-                <span class="pm-row-value mono">${htmlEsc(r.license_number_public_masked || '—')}</span>
+            <div class="pm-cells">
+              <div class="pm-cell">
+                <div class="pm-cell-label">License Number</div>
+                <div class="pm-cell-value mono">${htmlEsc(r.license_number_public_masked || '—')}</div>
               </div>
-              <div class="pm-row">
-                <span class="pm-row-label">Status</span>
-                <span class="pm-row-value"><span class="tag ${st.cls}" style="font-size:.72rem">${st.label}</span></span>
+              <div class="pm-cell">
+                <div class="pm-cell-label">Status</div>
+                <div class="pm-cell-value"><span class="tag ${st.cls}" style="font-size:.72rem;margin-top:2px;display:inline-flex">${st.label}</span></div>
               </div>
-              <div class="pm-row">
-                <span class="pm-row-label">License Type</span>
-                <span class="pm-row-value">${htmlEsc(r.license_type || '—')}</span>
+              <div class="pm-cell wide">
+                <div class="pm-cell-label">License Type</div>
+                <div class="pm-cell-value">${htmlEsc(r.license_type || '—')}</div>
               </div>
-              <div class="pm-row">
-                <span class="pm-row-label">Certification Level</span>
-                <span class="pm-row-value">${r.license_level ? 'Level ' + r.license_level : '—'}</span>
+              <div class="pm-cell">
+                <div class="pm-cell-label">Certification Level</div>
+                <div class="pm-cell-value">${r.license_level ? 'Level ' + r.license_level : '—'}</div>
               </div>
-              <div class="pm-row">
-                <span class="pm-row-label">Expiration Date</span>
-                <span class="pm-row-value">${fmtDate(r.expiration_date)}</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="pm-section">
-            <div class="pm-section-title">Location</div>
-            <div class="pm-rows">
-              <div class="pm-row">
-                <span class="pm-row-label">State</span>
-                <span class="pm-row-value">${htmlEsc(r.state || '—')}</span>
-              </div>
-              <div class="pm-row">
-                <span class="pm-row-label">City</span>
-                <span class="pm-row-value">${htmlEsc(r.city || '—')}</span>
-              </div>
-              <div class="pm-row">
-                <span class="pm-row-label">Zip Code</span>
-                <span class="pm-row-value">${htmlEsc(r.zip || '—')}</span>
+              <div class="pm-cell">
+                <div class="pm-cell-label">Expiration Date</div>
+                <div class="pm-cell-value">${fmtDate(r.expiration_date)}</div>
               </div>
             </div>
           </div>
 
           <div class="pm-section">
-            <div class="pm-section-title">Record Source</div>
-            <div class="pm-rows">
-              <div class="pm-row">
-                <span class="pm-row-label">Issuing Agency</span>
-                <span class="pm-row-value">${htmlEsc(r.source_system || 'TCEQ')}</span>
+            <div class="pm-section-title">Location &amp; Source</div>
+            <div class="pm-cells cols-3">
+              <div class="pm-cell">
+                <div class="pm-cell-label">State</div>
+                <div class="pm-cell-value">${htmlEsc(r.state || '—')}</div>
               </div>
-              <div class="pm-row">
-                <span class="pm-row-label">Profile Claimed</span>
-                <span class="pm-row-value">${r.claimed_profile ? '✓ Verified by operator' : 'Not yet claimed'}</span>
+              <div class="pm-cell">
+                <div class="pm-cell-label">City</div>
+                <div class="pm-cell-value">${htmlEsc(r.city || '—')}</div>
               </div>
-              ${r.source_url ? `<div class="pm-row"><span class="pm-row-label">Primary Source</span><span class="pm-row-value"><a href="${r.source_url}" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:underline;font-size:.85rem;">View on state registry ↗</a></span></div>` : ''}
+              <div class="pm-cell">
+                <div class="pm-cell-label">Zip Code</div>
+                <div class="pm-cell-value">${htmlEsc(r.zip || '—')}</div>
+              </div>
+              <div class="pm-cell">
+                <div class="pm-cell-label">Issuing Agency</div>
+                <div class="pm-cell-value">${htmlEsc(r.source_system || 'TCEQ')}</div>
+              </div>
+              <div class="pm-cell">
+                <div class="pm-cell-label">Profile Claimed</div>
+                <div class="pm-cell-value">${r.claimed_profile ? '✓ Verified' : 'Not claimed'}</div>
+              </div>
+              <div class="pm-cell">
+                <div class="pm-cell-label">State Registry</div>
+                <div class="pm-cell-value">${r.source_url ? `<a href="${r.source_url}" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:underline;font-size:.85rem;">View ↗</a>` : '—'}</div>
+              </div>
             </div>
           </div>
 
           <div class="pm-contact-section">
             <div class="pm-section-title" style="margin-bottom:10px;">Contact</div>
-            <div class="pm-contact-row">
-              <span class="pm-row-label">Email</span>
-              <span class="pm-contact-blurred">operator@licensed.com</span>
+            <div class="pm-cells">
+              <div class="pm-cell">
+                <div class="pm-cell-label">Email</div>
+                <div class="pm-contact-blurred">operator@licensed.com</div>
+              </div>
+              <div class="pm-cell">
+                <div class="pm-cell-label">Phone</div>
+                <div class="pm-contact-blurred">(512) 555-0100</div>
+              </div>
             </div>
-            <div class="pm-contact-row">
-              <span class="pm-row-label">Phone</span>
-              <span class="pm-contact-blurred">(512) 555-0100</span>
-            </div>
-            <div class="pm-contact-note">Contact is masked and routed securely through the Water Operator Network. Submit a contact request to connect.</div>
+            <div class="pm-contact-note">Contact is masked and routed securely through the Water Operator Network. Submit a request to connect.</div>
           </div>
 
           <div class="pm-footer">
