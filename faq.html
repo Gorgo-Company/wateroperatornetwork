@@ -57,20 +57,79 @@
     .page-hero h1 { font-size: clamp(2rem, 3vw + 0.5rem, 2.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.04em; color: var(--text); margin-bottom: 12px; }
     .page-hero p { font-size: 0.975rem; color: var(--muted); max-width: 60ch; line-height: 1.7; }
     
-    /* TOC */
-    .toc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin: 32px 0; }
-    .toc h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
-    .toc-list { display: flex; flex-direction: column; gap: 6px; }
-    .toc-list a { font-size: 0.875rem; color: var(--primary); font-weight: 500; }
+    /* TOC — compact horizontal pills */
+    .toc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 20px; margin: 28px 0 0; }
+    .toc-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .toc-head h2 { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin: 0; }
+    .toc-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .toc-list a {
+      font-size: 0.82rem; color: var(--primary); font-weight: 600;
+      background: var(--primary-soft); border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
+      padding: 6px 14px; border-radius: 100px;
+      transition: all 0.17s ease; text-decoration: none;
+      white-space: nowrap;
+    }
+    .toc-list a:hover { background: var(--primary); color: white; }
     
     /* Content */
     .page-content { padding: 40px 0; }
     .faq-section { margin-bottom: 48px; }
     .faq-section h2 { font-size: 1.5rem; font-weight: 700; color: var(--text); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border); }
-    .faq-item { margin-bottom: 24px; }
-    .faq-q { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
-    .faq-a { font-size: 0.9rem; color: var(--text-2); line-height: 1.7; }
+    .faq-item { margin-bottom: 4px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; transition: all 0.17s ease; }
+    .faq-item.hidden { display: none; }
+    .faq-q {
+      font-size: 0.95rem; font-weight: 600; color: var(--text);
+      padding: 14px 40px 14px 16px;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.17s ease;
+      user-select: none;
+    }
+    .faq-q:hover { background: var(--surface-2); }
+    .faq-q::after {
+      content: '+';
+      position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+      font-size: 1.1rem; font-weight: 400; color: var(--muted);
+      transition: transform 0.2s ease;
+    }
+    .faq-item.open .faq-q::after { content: '−'; }
+    .faq-a {
+      font-size: 0.9rem; color: var(--text-2); line-height: 1.7;
+      max-height: 0; overflow: hidden; padding: 0 16px;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 16px 16px; }
     .faq-a strong { color: var(--text); font-weight: 600; }
+    
+    /* FAQ Search bar */
+    .faq-search {
+      position: sticky; top: 62px; z-index: 50;
+      background: color-mix(in srgb, var(--surface) 95%, transparent);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin: 16px 0 28px;
+      box-shadow: 0 2px 8px rgba(20,40,34,0.06);
+    }
+    .faq-search input {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      padding: 13px 16px;
+      font-size: 0.95rem;
+      transition: border-color 0.17s ease, box-shadow 0.17s ease, background 0.17s ease;
+    }
+    .faq-search input::placeholder { color: var(--muted); }
+    .faq-search input:focus {
+      border-color: var(--primary-mid);
+      background: var(--surface);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+      outline: none;
+    }
+    .faq-search-count { font-size: 0.75rem; color: var(--muted); margin-top: 8px; font-weight: 500; min-height: 18px; }
     
     @media (max-width: 960px) { .nav-links { display: none; } }
     @media (max-width: 680px) { .shell { padding: 0 16px 60px; } }
@@ -112,13 +171,18 @@
     </section>
 
     <div class="toc">
-      <h2>Quick Navigation</h2>
+      <div class="toc-head"><h2>Jump to section</h2></div>
       <div class="toc-list">
-        <a href="#finding-operators">Finding Licensed Operators</a>
-        <a href="#licensing">Licensing & Certification Requirements</a>
-        <a href="training.html">Training & Career Resources →</a>
-        <a href="#state-specific">State-Specific Information</a>
+        <a href="#finding-operators">Finding Operators</a>
+        <a href="#licensing">Licensing & Certification</a>
+        <a href="training.html">Training & Career →</a>
+        <a href="#state-specific">State-Specific Info</a>
       </div>
+    </div>
+
+    <div class="faq-search">
+      <input type="text" id="faqSearch" placeholder="🔍  Search all questions and answers…" autocomplete="off" />
+      <div class="faq-search-count" id="faqCount"></div>
     </div>
 
     <div class="page-content">
@@ -518,12 +582,61 @@
   </main>
 
   <script>
+    // Theme
     const savedTheme = localStorage.getItem('wonTheme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     document.getElementById('themeBtn').addEventListener('click', () => {
       const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('wonTheme', next);
+    });
+
+    // Collapsible FAQ items
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const wasOpen = item.classList.contains('open');
+        // Close all in same section (optional: remove this for independent toggle)
+        // item.parentElement.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        item.classList.toggle('open', !wasOpen);
+      });
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('faqSearch');
+    const faqCount = document.getElementById('faqCount');
+    const allItems = document.querySelectorAll('.faq-item');
+    const allSections = document.querySelectorAll('.faq-section');
+    const totalCount = allItems.length;
+
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim().toLowerCase();
+      let visible = 0;
+
+      allItems.forEach(item => {
+        const qText = (item.querySelector('.faq-q')?.textContent || '').toLowerCase();
+        const aText = (item.querySelector('.faq-a')?.textContent || '').toLowerCase();
+        const match = !q || qText.includes(q) || aText.includes(q);
+        item.classList.toggle('hidden', !match);
+        if (match) {
+          visible++;
+          if (q) item.classList.add('open');
+        }
+      });
+
+      // Hide section headers if no visible items in section
+      allSections.forEach(section => {
+        const visibleItems = section.querySelectorAll('.faq-item:not(.hidden)');
+        section.style.display = visibleItems.length ? '' : 'none';
+      });
+
+      faqCount.textContent = q ? `${visible} of ${totalCount} questions match` : '';
+
+      // If search cleared, close all
+      if (!q) {
+        allItems.forEach(item => item.classList.remove('open'));
+        allSections.forEach(s => s.style.display = '');
+      }
     });
   </script>
 </body>
