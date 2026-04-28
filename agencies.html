@@ -55,13 +55,36 @@
     [data-theme="light"] .icon-sun { display: none; } [data-theme="light"] .icon-moon { display: block; }
     
     /* Page hero */
-    .page-hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); }
-    .page-hero h1 { font-size: clamp(2rem, 3vw + 0.5rem, 3rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; color: var(--text); margin-bottom: 12px; }
-    .page-hero p { font-size: 0.975rem; color: var(--muted); max-width: 60ch; line-height: 1.7; }
-    
+    .page-hero { padding: 24px 0 16px; border-bottom: 1px solid var(--border); }
+    .page-hero h1 { font-size: clamp(1.6rem, 2.5vw + 0.5rem, 2.4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.04em; color: var(--text); margin-bottom: 8px; }
+    .page-hero p { font-size: 0.9rem; color: var(--muted); max-width: 70ch; line-height: 1.6; margin-bottom: 16px; }
+
+    /* Alpha nav */
+    .alpha-nav {
+      display: flex; flex-wrap: wrap; gap: 3px;
+      padding: 12px 0 2px;
+    }
+    .alpha-btn {
+      width: 30px; height: 30px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.78rem; font-weight: 700;
+      cursor: pointer; display: grid; place-items: center;
+      transition: all var(--transition);
+      text-decoration: none;
+      letter-spacing: 0;
+    }
+    .alpha-btn:hover { background: var(--primary-soft); border-color: var(--primary); color: var(--primary); }
+    .alpha-btn.inactive { color: var(--muted-2); border-color: transparent; background: transparent; cursor: default; pointer-events: none; }
+
+    /* Letter group anchor */
+    .letter-anchor { scroll-margin-top: 80px; }
+
     /* Content */
-    .page-content { padding: 40px 0; }
-    .state-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-top: 24px; }
+    .page-content { padding: 16px 0 0; }
+    .state-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-top: 0; }
     .state-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; transition: all var(--transition); }
     .state-card:hover { border-color: color-mix(in srgb, var(--primary) 50%, var(--border)); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
     .state-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
@@ -107,13 +130,13 @@
     <section class="page-hero">
       <h1>State Regulatory Agencies</h1>
       <p>Find your state's drinking water program and operator certification board. Direct links to licensing, certification programs, and operator lookup databases.</p>
+      <div class="alpha-nav" id="alphNav"></div>
     </section>
 
     <div class="page-content">
       <div class="state-grid">
         
-        <div class="state-card">
-          <h3>Alabama</h3>
+        <div class="state-card letter-anchor" id="state-A">
           <p>Alabama Department of Environmental Management</p>
           <div class="state-links">
             <a class="state-link" href="https://adem.alabama.gov/programs/water/drinkingwater.cnt" target="_blank" rel="noopener">Drinking Water Program →</a>
@@ -144,8 +167,7 @@
           </div>
         </div>
 
-        <div class="state-card">
-          <h3>California</h3>
+        <div class="state-card letter-anchor" id="state-C">
           <p>California State Water Resources Control Board</p>
           <div class="state-links">
             <a class="state-link" href="https://www.waterboards.ca.gov/drinking_water/certlic/occupations/DWopcert.html" target="_blank" rel="noopener">Drinking Water Operator Certification →</a>
@@ -168,23 +190,21 @@
           </div>
         </div>
 
-        <div class="state-card">
-          <h3>Delaware</h3>
+        <div class="state-card letter-anchor" id="state-D">
           <p>Delaware Division of Public Health</p>
           <div class="state-links">
             <a class="state-link" href="https://dhss.delaware.gov/dhss/dph/hsp/drinkingwater.html" target="_blank" rel="noopener">Drinking Water Program →</a>
           </div>
         </div>
 
-        <div class="state-card">
-          <h3>Florida</h3>
+        <div class="state-card letter-anchor" id="state-F">
           <p>Florida Department of Environmental Protection</p>
           <div class="state-links">
             <a class="state-link" href="https://floridadep.gov/water/source-drinking-water" target="_blank" rel="noopener">Drinking Water Program →</a>
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-G">
           <h3>Georgia</h3>
           <p>Georgia Environmental Protection Division</p>
           <div class="state-links">
@@ -192,7 +212,7 @@
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-H">
           <h3>Hawaii</h3>
           <p>Hawaii Department of Health</p>
           <div class="state-links">
@@ -200,7 +220,7 @@
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-I">
           <h3>Idaho</h3>
           <p>Idaho Department of Environmental Quality</p>
           <div class="state-links">
@@ -232,7 +252,7 @@
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-K">
           <h3>Kansas</h3>
           <p>Kansas Department of Health and Environment</p>
           <div class="state-links">
@@ -248,7 +268,7 @@
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-L">
           <h3>Louisiana</h3>
           <p>Louisiana Department of Health</p>
           <div class="state-links">
@@ -256,7 +276,7 @@
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-M">
           <h3>Maine</h3>
           <p>Maine Department of Health and Human Services</p>
           <div class="state-links">
@@ -320,7 +340,7 @@
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-N">
           <h3>Nebraska</h3>
           <p>Nebraska Department of Environment and Energy</p>
           <div class="state-links">
@@ -384,7 +404,7 @@
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-O">
           <h3>Ohio</h3>
           <p>Ohio Environmental Protection Agency</p>
           <div class="state-links">
@@ -408,7 +428,7 @@
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-P">
           <h3>Pennsylvania</h3>
           <p>Pennsylvania Department of Environmental Protection</p>
           <div class="state-links">
@@ -416,7 +436,7 @@
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-R">
           <h3>Rhode Island</h3>
           <p>Rhode Island Department of Health</p>
           <div class="state-links">
@@ -424,7 +444,7 @@
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-S">
           <h3>South Carolina</h3>
           <p>South Carolina Department of Health and Environmental Control</p>
           <div class="state-links">
@@ -440,7 +460,7 @@
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-T">
           <h3>Tennessee</h3>
           <p>Tennessee Department of Environment and Conservation</p>
           <div class="state-links">
@@ -457,7 +477,7 @@
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-U">
           <h3>Utah</h3>
           <p>Utah Division of Drinking Water</p>
           <div class="state-links">
@@ -465,7 +485,7 @@
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-V">
           <h3>Vermont</h3>
           <p>Vermont Department of Environmental Conservation</p>
           <div class="state-links">
@@ -481,7 +501,7 @@
           </div>
         </div>
 
-        <div class="state-card">
+        <div class="state-card letter-anchor" id="state-W">
           <h3>Washington</h3>
           <p>Washington Department of Health</p>
           <div class="state-links">
@@ -518,6 +538,7 @@
   </main>
 
   <script>
+    // Theme
     const savedTheme = localStorage.getItem('wonTheme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     document.getElementById('themeBtn').addEventListener('click', () => {
@@ -525,6 +546,24 @@
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('wonTheme', next);
     });
+
+    // Build A–Z alphabet nav
+    const ACTIVE_LETTERS = new Set(['A','C','D','F','G','H','I','K','L','M','N','O','P','R','S','T','U','V','W']);
+    const nav = document.getElementById('alphNav');
+    for (let i = 0; i < 26; i++) {
+      const letter = String.fromCharCode(65 + i);
+      const el = document.createElement('a');
+      el.textContent = letter;
+      if (ACTIVE_LETTERS.has(letter)) {
+        el.href = '#state-' + letter;
+        el.className = 'alpha-btn';
+        el.title = 'Jump to ' + letter;
+      } else {
+        el.className = 'alpha-btn inactive';
+        el.setAttribute('aria-disabled', 'true');
+      }
+      nav.appendChild(el);
+    }
   </script>
 </body>
 </html>
